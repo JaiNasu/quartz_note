@@ -1,6 +1,9 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
+// 1. macrosのインポートは変更なし
+import { customMacros } from "./quartz/plugins/transformers/katex-macros"
+
 /**
  * Quartz 4 Configuration
  *
@@ -16,7 +19,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz",
+    baseUrl: "quartz-note-9xd.pages.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
@@ -71,7 +74,10 @@ const config: QuartzConfig = {
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
-      Plugin.Latex({ renderEngine: "katex" }),
+      Plugin.Latex({
+        renderEngine: "katex",
+        customMacros: customMacros,
+      }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [

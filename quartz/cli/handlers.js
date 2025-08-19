@@ -472,6 +472,7 @@ export async function handleBuild(argv) {
       "**/*.ts",
       "quartz/cli/*.js",
       "quartz/static/**/*",
+      "content/**/*.md",
       "**/*.tsx",
       "**/*.scss",
       "package.json",
@@ -552,6 +553,7 @@ export async function handleRestore(argv) {
  * @param {*} argv arguments for `sync`
  */
 export async function handleSync(argv) {
+  spawnSync("npm", ["run", "generate:math"])
   const contentFolder = resolveContentPath(argv.directory)
   console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)}\n`)
   console.log("Backing up your content")

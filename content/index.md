@@ -4,7 +4,6 @@ date: "2025-08-18"
 tags: ["Homepage"]
 ---
 
-# Introduction
 
 # Overview
 
@@ -16,4 +15,7 @@ You can see the contents of this website on the left, and the contents of this p
 Dirac Equation:
 $$
 i \hbar (\partial_\mu \gamma^\mu - m) \psi = 0
+$$
+$$
+\hi, \hello, \cmplx
 $$
