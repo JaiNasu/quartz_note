@@ -8,9 +8,10 @@ import { KatexOptions } from "katex"
 import { Options as MathjaxOptions } from "rehype-mathjax/svg"
 //@ts-ignore
 import { Options as TypstOptions } from "@myriaddreamin/rehype-typst"
+import rehypeMathML from "@daiji256/rehype-mathml"
 
 interface Options {
-  renderEngine: "katex" | "mathjax" | "typst"
+  renderEngine: "katex" | "mathjax" | "typst" | "mathml"
   customMacros: MacroType
   katexOptions: Omit<KatexOptions, "macros" | "output">
   mathJaxOptions: Omit<MathjaxOptions, "macros">
@@ -39,6 +40,9 @@ export const Latex: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
         }
         case "mathjax": {
           return [[rehypeMathjax, { macros, ...(opts?.mathJaxOptions ?? {}) }]]
+        }
+        case "mathml": {
+          return [[rehypeMathML, { macros}]]
         }
         default: {
           return [[rehypeMathjax, { macros, ...(opts?.mathJaxOptions ?? {}) }]]

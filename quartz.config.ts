@@ -76,7 +76,10 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({
         renderEngine: "katex",
-        customMacros: customMacros,
+        katexOptions:
+          {
+            macros: customMacros,
+          },
       }),
     ],
     filters: [Plugin.RemoveDrafts()],

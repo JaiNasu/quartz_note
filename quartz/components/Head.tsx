@@ -99,6 +99,7 @@ export default (() => {
             return resource
           }
         })}
+      <link rel="stylesheet" href={joinSegments(baseDir, "/static/styles/custom-math-styles.css")} />
       </head>
     )
   }
